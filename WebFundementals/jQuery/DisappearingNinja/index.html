@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            #frame {
+                width: 550px;
+                background-color: grey;
+                padding: 20px;
+            }
+        </style>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function() {
+                $("img").click(function() {
+                    $(this).css('opacity', '0')
+                    // $(this).fadeOut();
+                });
+
+                $("#reset").click(function() {
+                    $("img").css('opacity', '1')
+                    // $("img").fadeIn()
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div id='frame'>
+            <img src='github-icon.png' class="gh-icon"></img>
+            <img src='github-icon.png' class="gh-icon"></img>
+            <img src='github-icon.png' class="gh-icon"></img>
+            <img src='github-icon.png' class="gh-icon"></img>
+            <img src='github-icon.png' class="gh-icon"></img>
+            <img src='github-icon.png' class="gh-icon"></img>
+            <img src='github-icon.png' class="gh-icon"></img>
+            <img src='github-icon.png' class="gh-icon"></img>
+        </div>
+        <button id="reset">Reset</button>
+    </body>
+</html>

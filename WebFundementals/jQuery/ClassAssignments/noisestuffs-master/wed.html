@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <style>
+            .sound-thing {
+                border: 3px solid green;
+            }
+        </style>
+        <script
+src="https://code.jquery.com/jquery-3.2.1.js"
+integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+crossorigin="anonymous"></script>
+
+            <!-- where the stuff goes down -->
+        <script>
+            var context = new (window.AudioContext || window.webkitAudioContext)();
+            $(document).ready(function(){
+                console.log("yo jq works");
+                $('form').submit(function(e){
+                    e.preventDefault();    
+                    var name = $("input[name='name']").val();
+                    var duration = $("input[name='duration']").val();
+                    var frequency = $("input[name='frequency']").val();
+                    $('#soundbank').append(buildSoundThing(name, frequency, duration));
+                });
+
+                function buildSoundThing(name, fre, dur) {
+                    return "<div class='sound-thing'><p>" + name + "</p><p>" + fre +"</p><p>" + dur + "</p></div>";
+                };
+                
+                $("#soundbank").on("click", ".sound-thing", function(){
+                    playSound(this); 
+                });
+
+                function playSound(ele) {
+                    var oscar = context.createOscillator(),
+                        soundName = ele.childNodes[0].innerText,
+                        soundFreq = parseInt(ele.childNodes[1].innerText),
+                        soundDur = parseInt(ele.childNodes[2].innerText);
+                    console.log(soundName, soundFreq, soundDur)
+
+                    oscar.type = 'square';
+                    oscar.frequency.value = soundFreq;
+                    oscar.connect(context.destination);
+                    oscar.start();
+                    setTimeout(function(){
+                        oscar.stop();
+                    }, soundDur);
+                }
+
+                function playAll() {
+                    var soundbank = document.getElementById('soundbank').children;
+                    var delay = 0;
+                    for(i = 0; i < soundbank.length - 1; i++) {
+                        setTimeout(function() {
+                            console.log(i)
+                            playSound(soundbank[i]);
+                        }, delay);
+                        delay += parseInt(soundbank[i].childNodes[2].innerText);
+                        delay += 200;
+                    }
+                    setTimeout(function() {
+                        console.log(i)
+                        playSound(soundbank[i]);
+                    }, delay);
+                }
+
+                $("#playAll").click(function() {
+                    playAll();
+                })
+
+            });
+        </script>
+            
+    </head>
+    <body>
+        <form action="">
+            <label for="frequency">Name:</label>
+            <input type="text" name="name" value="sound">
+            <label for="frequency">Freq:</label>
+            <input type="number" name="frequency" value="500">
+            <label for="duration">Duration:</label>
+            <input type="number" name="duration" value="250">
+            <input type="submit" value="make noise!">
+        </form>
+        <button id="playAll">Play All</button>
+        <button id="playAllLoop">Play All Loop</button>
+        <div id="soundbank">
+
+
+        </div>
+    </body>
+</html>

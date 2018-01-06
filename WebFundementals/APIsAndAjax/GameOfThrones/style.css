@@ -1,0 +1,40 @@
+body {
+    width: 1250px;
+    height: 1000px;
+    background-color: gray;
+}
+
+img {
+    width: 200px;
+    height: 240px;
+    padding: 50px;
+}
+
+h2 {
+    display: inline-block;
+    position: relative;
+    padding: 5px;
+    bottom: 41px;
+    left: 150px;
+    background-color: gray;
+}
+
+figure {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+
+figcaption {
+    font-size: 12px;
+    position: relative;
+    bottom: 50px;
+    left: 10px;
+}
+
+#house-details {
+    border: 5px solid black;
+    width: 800px;
+    height: 500px;
+    margin: 0px 220px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Pokedex</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                for(i = 1; i < 152; i++) {
+                    $("#pokemon").append('<img id=' + i + ' src="http://pokeapi.co/media/img/' + i + '.png">')
+                };
+
+                $('img').on('click', function() {
+                    console.log('poke id: ' + $(this).attr('id'))
+                    $.get('https://pokeapi.co/api/v2/pokemon/' + $(this).attr('id') + '/', function(res) {
+                        $("#num").text(res.id);
+                        $("#name").text(res.name);
+                        var pic = "http://pokeapi.co/media/img/" + res.id + ".png";
+                        $(".pic").attr('src', pic);
+                        console.log("http://pokeapi.co/media/img/" + res.id + ".png")
+                        $("#nameStat").html('<strong>Name:</strong> ' + res.name);
+                        $("#height").html('<strong>Height:</strong> ' + res.height);
+                        $("#weight").html('<strong>Weight:</strong> ' + res.weight);
+
+                        var html = '<strong>Types:</strong> ';
+                        for(i = 0; i < res.types.length; i++) {
+                            html += res.types[i].type.name
+                            html += ' '
+                        }
+
+                        $("#type").html(html);
+                        $("#speed").html('<strong>Speed:</strong> ' + res.stats[0].base_stat);
+                        $("#defense").html('<strong>Defense:</strong> ' + res.stats[3].base_stat);
+                        $("#attack").html('<strong>attack:</strong> ' + res.stats[4].base_stat);
+                        $("#spcDefense").html('<strong>spcDefense:</strong> ' + res.stats[1].base_stat);
+                        $("#spcAttack").html('<strong>spcAttack:</strong> ' + res.stats[2].base_stat);
+                        $("#hp").html('<strong>HP:</strong> ' + res.stats[5].base_stat);
+
+                    }, 'json')
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="pokemon">
+            
+        </div>
+        <div id="pokedex">
+            <div id="header">
+                <h1 id="name">Bulbasaurous Rex</h1>
+                <h1 id="num"># 145</h1>
+            </div>
+            <div id="pic-frame">
+                <img class='pic' src="http://pokeapi.co/media/img/1.png" alt="Bulbasaurous">
+            </div>
+            <div id="content">
+                <h2>Poke Stats</h2>
+                <div class="col">
+                    <h4 id="nameStat"><strong>Name:</strong> Bulbasaurous Rex</h4>
+                    <h4 id="height"><strong>Height:</strong> 000</h4>
+                    <h4 id="weight"><strong>Weight:</strong> 000</h4>
+                    <h4 id="type"><strong>Type:</strong> a big black long one</h4>
+                </div>
+                <div class="col">
+                    <h4 id="speed"><strong>Speed:</strong> 000</h4>
+                    <h4 id="defense"><strong>Defense:</strong> 000</h4>
+                    <h4 id="attack"><strong>Attack:</strong> 000</h4>
+                    <h4 id="spcDefense"><strong>Special Defense:</strong> 000</h4>
+                    <h4 id="spcAttack"><strong>Special Attack:</strong> 000</h4>
+                    <h4 id="hp"><strong>HP:</strong> 000</h4>
+                </div>
+                
+            </div>
+
+        </div>
+    </body>
+</html>

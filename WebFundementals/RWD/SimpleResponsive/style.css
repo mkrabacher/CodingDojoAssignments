@@ -1,0 +1,45 @@
+#header {
+    background-color: lightgray;
+    width: 100%
+}
+
+#content {
+    background-color: darkgray;
+    width: 100%
+}
+
+#footer {
+    background-color: rgb(175, 185, 29);
+    width: 100%
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .lg {
+        width: 100%;
+    }
+    
+    .lg-0 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+    .med {
+        width: 100%;
+    }
+    
+    .med-0 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .sm {
+        width: 100%;
+    }
+    
+    .sm-0 {
+        display: none;
+    }
+}

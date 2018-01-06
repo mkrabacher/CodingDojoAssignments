@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>jQuery</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+        <script type="text/javascript">
+            function setListeners() {
+                $(".del").on('click', function() {
+                    $(this).parent().remove();
+                });
+
+                $('.front').on('click', function() {
+                    var html = '<p>' + $(this).attr('description') + '</p>';
+                    $(this).html(html);
+                    $(this).addClass("back");
+                    $(this).removeClass("front");
+                });
+
+                $('.back').on('click', function() {
+                    var html = '<h2>' + $(this).attr('nameProp') + '</h2><p>*hover for more</p><button class="del">Remove Card</button>';
+                    $(this).html(html);
+                    $(this).addClass("front");
+                    $(this).removeClass("back");
+                });
+            }
+
+            function random_color() {
+                var rgb = ['a','b','c','d','e','f','0','1','2','3','4','5','6','7','8','9'];
+                color = '#'
+                for(var i = 0; i < 6; i++) {
+                    x = Math.floor((Math.random()*16))
+                    color += rgb[x]; 
+                }
+                return color;
+            }
+            
+            $(document).ready(function() {
+                $(document).on('click', function() {
+                    setListeners()
+                })
+
+                $("#sub").on('click', function() {
+                    fullName = $('#fname').val() + ' ' + $('#lname').val();
+                    $("#card-frame").append('<div style="background-color: ' + random_color() + '" nameProp="' + fullName + '" description="' + $('#description').val() + '" class="front"><h2>' + fullName + '</h2><p class="hov">*click for more</p><button class="del">Remove Card</button></div>');
+
+                    return false;
+                });
+
+
+            });
+        </script>
+    </head>
+    <body>
+        <div id='wrapper'>
+            <div id="input-frame">
+                <form id="card-form" action="process.php">
+                    <div class="inputLine">
+                        <label for="fname">First Name:</label>
+                        <input id="fname" name='fname' type="text" placeholder="First Name">
+                    </div>
+                    <div class="inputLine">
+                        <label for="lname">Last Name:</label>
+                        <input id="lname" name='lname' type="text" placeholder="Last Name">
+                    </div>
+                    <div class="inputBox">
+                        <label for="description">Description:</label><br>
+                        <textarea rows="20" cols="40" id="description" name='description' type="text" placeholder="Write something about this person..."></textarea>
+                    </div>
+                    <button id="sub">Add New Card</button>
+                </form>
+
+            </div>
+            <div id="card-frame">
+                <div nameProp='Matt Krabacher' description='my milkshake is better than yours.' class="front">
+                    <h2>Matt Krabacher</h2>
+                    <p class="hov">*click for more</p>
+                    <button class="del">Remove Card</button>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

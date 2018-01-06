@@ -1,0 +1,115 @@
+* {
+	vertical-align: baseline;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: inherit;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;  
+}
+
+body {
+    width: 1200px;
+    padding: 20px;
+    background-color: #eeeeee;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+.eleText {
+	font-size: 10px;
+}
+
+#sidebar {
+	display: inline-block;
+}
+
+.group {
+	color: red;
+	display: inline-block;
+	width: 55px;
+	text-align: center;
+}
+
+.period {
+	width: 48px;
+	height: 58px;
+	color: red;
+	text-align: center;
+	margin: 0px 0px 4px
+}
+
+.moles {
+	display: inline-block;
+	vertical-align: top;
+	margin: 35px 0px 0px;
+	width: 1000px;
+}
+
+.block {
+	display: inline-block;
+	margin: 0px 0px 2px 0px;
+	vertical-align: top;
+	text-align: center;
+}
+
+.blue {
+	border: 1px solid gray;
+	background-color: #689bff;
+	width: 48px;
+	height: 58px;
+}
+
+.empty {
+	background-color: transparent;
+	width: 50px;
+	height: 58px;
+}
+
+.longEmpty {	
+	background-color: transparent;
+	width: 548px;
+	height: 58px;
+}
+
+.shortEmpty {
+	background-color: transparent;
+	width: 4px;
+	height: 58px;	
+}
+
+.yellow {
+	border: 1px solid gray;
+	background-color: #fecb00;
+	width: 48px;
+	height: 58px;
+}
+
+.pink {
+	border: 1px solid gray;
+	background-color: #fd9a98;
+	width: 48px;
+	height: 58px;
+}
+
+.green {
+	border: 1px solid gray;
+	background-color: #1fca21;
+	width: 48px;
+	height: 58px;
+}
+
+#gap {
+	height: 30px;
+	width: 1000px;
+}
+
+.textBlock {
+	background-color: transparent;
+	text-align: right;
+	width: 70px;
+	display: inline-block;
+	padding: 21px
+}

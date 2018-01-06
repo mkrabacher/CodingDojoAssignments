@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>
+            #frame {
+                width: 180px;
+                background-color: grey;
+                padding: 20px;
+            }
+        </style>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function() {
+                $("img").click(function() {
+                    if($(this).attr('class') == 'cat') {
+                        var part = $(this).attr('id');
+                        $(this).prop('src', ('img/ninja' + part + '.png'))
+                        $(this).removeClass('cat')
+                        $(this).addClass('ninja')
+                    } else {
+                        var part = $(this).attr('id');
+                        $(this).prop('src', ('img/cat' + part + '.png'))
+                        $(this).removeClass('ninja')
+                        $(this).addClass('cat')
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id='frame'>
+            <img src='img/cat0.png' class="cat" id='0'></img>
+            <img src='img/cat1.png' class="cat" id="1"></img>
+            <img src='img/cat2.png' class="cat" id="2"></img>
+            <img src='img/cat3.png' class="cat" id="3"></img>
+            <img src='img/cat4.png' class="cat" id="4"></img>
+        </div>
+        <p>feel free to click as much as you want. won't bother me none.</p>
+    </body>
+</html>

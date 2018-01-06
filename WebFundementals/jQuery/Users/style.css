@@ -1,0 +1,26 @@
+
+
+table {
+    border: 5px solid black;
+    width: 600px;
+}
+
+th, td {
+    border: 2px solid black
+}
+
+h1 {
+    text-align: center;
+    width: 600px;
+    border-bottom: 4px solid grey
+}
+
+#sub {
+    margin: 0px 250px;
+}
+
+.inputLine {
+    width: 430px;
+    margin: 10px 0px;
+    text-align: right;
+}

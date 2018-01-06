@@ -1,0 +1,141 @@
+@media only screen and (min-width: 1024px) { /*MED*/
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #wrapper{
+        max-width: 883px;
+        margin: 0px auto;
+        padding: 18px;
+        max-height: 580px;
+    }
+    #header{
+        height: 150px;
+        background-color: green;
+        margin-bottom: 18px;
+    }
+    #navigation{
+        height: 300px;
+        width: 200px;
+        background-color: blue;
+        display: inline-block;
+    }
+    #main_content{
+        height: 400px;
+        max-width: 700px;
+        background-color: red;
+        padding: 5px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .subcontents{
+        height: 200px;
+        width: 31%;
+        margin: 5px;
+        background-color: yellow;
+        display: inline-block;
+    }
+    #advertisement{
+        height: 120px;
+        width: 660px;
+        background-color: purple;
+        margin-top: 18px;
+        margin-left: 5px
+
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1023px) { /*MED*/
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #wrapper{
+        max-width: 883px;
+        margin: 0px auto;
+        padding: 18px;
+        max-height: 580px;
+    }
+    #header{
+        height: 150px;
+        max-width: 655px;
+        background-color: green;
+        margin-bottom: 18px;
+    }
+    #navigation{
+        height: 300px;
+        width: 200px;
+        background-color: blue;
+        display: none;
+    }
+    #main_content{
+        height: 575px;
+        width: 100%;
+        max-width: 645px;
+        background-color: red;
+        padding: 5px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .subcontents{
+        height: 200px;
+        width: 47%;
+        margin: 5px;
+        background-color: yellow;
+        display: inline-block;
+    }
+    #advertisement{
+        height: 120px;
+        width: 100%;
+        max-width: 635px;
+        background-color: purple;
+        margin-top: 18px;
+        margin-left: 5px
+    }
+}
+
+@media only screen and (max-width: 480px) { /*SMALL*/
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #wrapper{
+        max-width: 883px;
+        margin: 0px auto;
+        padding: 18px;
+        max-height: 580px;
+    }
+    #header{
+        height: 150px;
+        background-color: green;
+        margin-bottom: 18px;
+    }
+    #navigation{
+        height: 300px;
+        width: 200px;
+        background-color: blue;
+        display: none;
+    }
+    #main_content{
+        max-width: 100%;
+        background-color: red;
+        padding: 5px;
+        display: block;
+        vertical-align: top;
+    }
+    .subcontents{
+        height: 200px;
+        width: 97%;
+        margin: 5px;
+        background-color: yellow;
+        display: inline-block;
+    }
+    #advertisement{
+        height: 120px;
+        width: 97%;
+        background-color: purple;
+        margin-top: 18px;
+        margin-left: 5px
+
+    }
+}

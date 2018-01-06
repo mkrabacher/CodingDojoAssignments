@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery UI Accordion - Default functionality</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css"> -->
+        <link rel="stylesheet" href="C:\Users\Wamsutta\Desktop\Coding\CodingDojo\WebFundementals\jQueryUI\AccordianAndTab\style.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $( function() {
+                $( "#accordion" ).accordion();
+                $( "#tabs" ).tabs();
+                $( "#date" ).datepicker();
+            } );
+        </script>
+    </head>
+    <body>
+        <h1>Ajit Pai</h1>
+        <div id="accordion">
+            <h3>Early life and education</h3>
+            <div id='tabs'>
+                <ul>
+                    <li><a href="#tab1">Tab 1</a></li>
+                    <li><a href="#tab2">Tab 2</a></li>
+                    <li><a href="#tab3">Tab 3</a></li>
+                    <li><a href="#tab4">Tab 4</a></li>
+                </ul>
+                <div id="tab1">
+                    This is what is displayed in the First tab. The other tabs will all be different.
+                </div>
+                <div id="tab2">
+                    Ajit Pai is a dick
+                </div>
+                <div id="tab3">
+                    Ajit Pai is a super dick
+                </div>
+                <div id="tab4">
+                    No really, Ajit Pai is a super dick
+                </div>
+            </div>
+            <h3>Datepicker</h3>
+            <div>
+                <p>Pick the day you will die: <input type="text" name="dateyoudie" id="date"> </p>
+                <button>Submit</button>
+            </div>
+            <h3>Tool Tips</h3>
+            <div>
+                <p><a href="#" title="Ajit Pai's a dick. That what this says.">Nam enim risus, molestie et, porta ac, aliquam ac, risus.</a> Quisque lobortis.
+                Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+                ac tellus pellentesque semper. <a href="#" title="Nobody likes Ajit Pai is what this says">Sed ac felis.</a> Sed commodo, magna quis
+                lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.</p>
+            </div>
+            <h3>Section 4</h3>
+            <div>
+                <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+                et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+                mauris vel est.</p>
+                <p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+                inceptos himenaeos.</p>
+            </div>
+        </div>
+    
+    
+    
+    </body>
+</html>

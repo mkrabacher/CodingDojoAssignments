@@ -1,0 +1,94 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+h1 {
+    color: yellow;
+    font-size: 80px;
+    padding: 80px;
+}
+
+h2 {
+    display: inline-block;
+    padding: 0px 110px;
+}
+
+h3 {
+    color: white;
+    display: inline-block;
+    text-align: right;
+    font-size: 30px;
+    width: 490px;
+}
+
+#frame {
+    background-color: black;
+    height: 860px;
+    width: 892px
+}
+
+#mapSelector {
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+}
+
+button {
+    margin: 20px;
+    padding: 5px;
+}
+
+#buttons {
+    padding: 200px 300px;
+
+}
+
+.row {
+    margin-bottom: -4px;
+}
+
+.blank {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+}
+ 
+.wall {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    background-color: blue;
+}
+ 
+.coin {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+}
+
+.power-up {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+}
+ 
+#pacman {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+}
+
+#mspacman {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+}
+
+.ghost {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    opacity: 1;
+}

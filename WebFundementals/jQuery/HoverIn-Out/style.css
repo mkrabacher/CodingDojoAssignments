@@ -1,0 +1,16 @@
+body {
+    background-color: darkgrey;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+img {
+    width: 20%;
+    display: inline-block;
+}

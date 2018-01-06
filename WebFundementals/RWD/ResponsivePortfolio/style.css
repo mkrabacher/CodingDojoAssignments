@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    background-color: rgb(240, 240, 240);
+    width: 100%;
+}
+
+h1 {
+    display: inline-block;
+    margin: 10px;
+}
+
+p {
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: top;
+}
+
+#header {
+}
+
+#headerTitle {
+    margin: 15px;
+    /* padding: 0px 0px 0px 50%; */
+    float: right;
+}
+
+#content {
+    background-color: #6f5964;
+}
+
+#profilePic {
+    width: 43%;
+    display: inline-block;
+    border: 6px solid lightgrey;
+    max-height: 280px;
+    max-width: 418px;
+}
+
+#content-top {
+    padding: 20px;
+}
+
+#aboutWrapper {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px 0px 0px 5px;
+    width: 53%;
+    background-color: #e9e0e8;
+    min-height: 285px;
+    max-width: 512px;
+}
+
+#aboutText {
+    background-color: #e9e0e8;
+}
+
+.contentBlock {
+    display: inline-block;
+    width: 300px;
+    margin: 0px 0px 20px 20px;
+    background-color: #e9e0e8;
+}
+
+.blockContent {
+    height: 400px;
+}
+
+.title {
+    background-color: grey;
+    padding: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contentImg {
+    width: 300px;
+}
+
+.techImg {
+    display: inline-block;
+    width: 40px;
+    margin: 10px 0px 0px 13px;
+}
+
+.btn {
+    margin: 10px;
+    margin-left: 115px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    background-color: #407d61;
+    padding: 5px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.icon {
+    width: 20px;
+    margin: 0px 0px 0px 5px;
+}
+
+@media only screen and (min-width: 1000px) {
+    
+}
+
+@media only screen and (min-width: 481px) and(max-width: 999px) {
+    #profilePic {
+        display: block;
+        margin: 10px 30%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+}

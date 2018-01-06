@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <style>
+            .separator {
+                width: 100%;
+                border: 2px solid black;
+                padding: 20px;
+                }
+
+                .red {
+                    color: red;
+                }
+        </style>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function() {
+                $("#1").click(function() {
+                    $(".1").hide()
+                });
+                $("#2").click(function() {
+                    $(".1").show()
+                });
+                $("#3").click(function() {
+                    $(".3").toggle()
+                });
+                $("#4").click(function() {
+                    $(".4").slideUp()
+                });
+                $("#5").click(function() {
+                    $(".4").slideDown()
+                });
+                $("#6").click(function() {
+                    $(".6").slideToggle()
+                });
+                $("#7").click(function() {
+                    $(".7").fadeOut()
+                });
+                $("#8").click(function() {
+                    $(".7").fadeIn()
+                });
+                $("#9").click(function() {
+                    $(".9").addClass('red')
+                });
+                $("#10").click(function() {
+                    $(".10").before('<h1>I must not fear.</h1>')
+                });
+                $("#11").click(function() {
+                    $(".10").after('<p>Fear is the little-death that brings total obliteration.')
+                });
+                $("#12").click(function() {
+                    $(".12").append('.append inserts within the h1 tag while .after adds it after.')
+                });
+                $("#13").click(function() {
+                    $(".13").html("my whole meaning has been rewritten. easy come easy go.")
+                });
+                $("#14").click(function() {
+                    var val = $(".14").attr("secret")
+                    $(".14").after("<p> the secret value is:" + val + "</p>")
+                });
+
+                function displayVals() {
+                    var singleValues = $( "#15" ).val();
+                    var multipleValues = $( "#15b" ).val() || [];
+                    $("#15c").html( "<b>Single:</b> " + singleValues +
+                        " <b>Multiple:</b> " + multipleValues.join( ", " ) );
+                }
+                $( "select" ).change( displayVals );
+                displayVals();
+
+                $("#16").click(function() {
+                    var val = $(".16").text();
+                    $(".16").append(val)
+                });
+                $("#17").click(function() {
+                    $(".17").after('just kidding go read about it.')
+                });
+                $('img').click(function() {
+                    $(this).hide();
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div class="separator">
+            <h1 class="1">hide/show</h1>
+            <button id='1'>hide</button>
+            <button id='2'>show</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="3">toggle</h1>
+            <button id='3'>toggle</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="4">Slide up/down</h1>
+            <button id='4'>slideUp</button>
+            <button id='5'>slideDown</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="6">slide toggle</h1>
+            <button id='6'>slideToggle</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="7">fade in/out</h1>
+            <button id='7'>fadeOut</button>
+            <button id='8'>fadeIn</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="9">add a class and make me red</h1>
+            <button id='9'>addClass .red</button>
+
+        </div>
+        <div class="separator">
+            <h2 class="10">Fear is the mind killer.</h2>
+            <button id='10'>before</button>
+            <button id='11'>after</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="12">Wanna know the difference between .append and .after</h1>
+            <button id='12'>append</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="13">I start as a h1 tag.</h1>
+            <button id='13'>html</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="14" secret='wubalubadubdub!'>click the attr button to see this h1 tag's secret attribute.</h1>
+            <button id='14'>attr</button>
+
+        </div>
+        <div class="separator">
+            <h1>.attr getter. look at the code to understand.</h1>
+            <select id="15">
+                <option>Single</option>
+                <option>Single2</option>
+            </select>
+            <select id="15b" multiple="multiple">
+                <option selected="selected">Multiple</option>
+                <option>Multiple2</option>
+                <option selected="selected">Multiple3</option>
+            </select>
+            <div id='15c'></div>
+        </div>
+        <div class="separator">
+            <h1 class="16">push button to grab all this text and .append it to the end. </h1>
+            <button id='16'>text</button>
+
+        </div>
+        <div class="separator">
+            <h1 class="17">sup</h1>
+
+            <button id='17'>display h1 data</button>
+
+        </div>
+        <div class="separator">
+            <h1>click img to see disappear. see code for example of 'this' usage.</h1>
+            <img src="github-icon.png" alt="gh">
+
+        </div>
+    </body>
+</html>

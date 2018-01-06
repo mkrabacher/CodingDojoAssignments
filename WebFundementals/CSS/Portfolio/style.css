@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    background-color: rgb(240, 240, 240);
+    width: 1000px;
+}
+
+h1 {
+    display: inline-block;
+    margin: 10px;
+}
+
+p {
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: top;
+}
+
+#header {
+}
+
+#headerTitle {
+    float: right;
+    margin: 15px;
+}
+
+#content {
+    background-color: #6f5964;
+}
+
+#profilePic {
+    width: 410px;
+    display: inline-block;
+    border: 6px solid lightgrey;
+}
+
+#content-top {
+    padding: 20px
+}
+
+#aboutWrapper {
+    float: right;
+    width: 515px;
+    background-color: #e9e0e8;
+    height: 282px;
+}
+
+#aboutText {
+    background-color: #e9e0e8;
+}
+
+.contentBlock {
+    display: inline-block;
+    width: 300px;
+    margin: 0px 0px 20px 20px;
+    background-color: #e9e0e8;
+}
+
+.blockContent {
+    height: 400px;
+}
+
+.title {
+    background-color: grey;
+    padding: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contentImg {
+    width: 300px;
+}
+
+.techImg {
+    display: inline-block;
+    width: 40px;
+    margin: 10px 0px 0px 13px;
+}
+
+.btn {
+    margin: 10px;
+    margin-left: 115px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    background-color: #407d61;
+    padding: 5px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.icon {
+    width: 20px;
+    margin: 0px 0px 0px 5px;
+}

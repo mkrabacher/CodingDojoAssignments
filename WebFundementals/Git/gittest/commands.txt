@@ -1,0 +1,23 @@
+cd desktop
+mkdir gittest
+cd gittest
+touch index.html
+touch styles.css
+touch aboutMe.txt
+git status
+git add .
+git commit -m "initial commit with index, styles and aboutMe"
+[opened aboutMe.txt in notepad and wrote a bio]
+git status
+git add .
+git commit -m "update aboutMe"
+[opened aboutMe.txt in notepad and added my favorite movie]
+git status
+git add .
+git commit -m "added fav movie to aboutMe"
+git log
+git revert HEAD
+[Esc key] :exit
+[opened aboutMe.txt in notepad and added my favorite book]
+git add .
+git commit -m 'added fav book to aboutMe'

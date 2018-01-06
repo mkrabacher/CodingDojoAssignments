@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Game of Thrones</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                
+                // for(i = 1; i < 445; i++) {
+                //     $.get(`https://anapioficeandfire.com/api/houses/${i}`, function(res) {
+                //         var nameArr = res.name.split(' ');
+                //         for(j = 0; j < nameArr.length; j++) {
+                //             if(nameArr[j] == 'Stark' || nameArr[j] == 'Baratheon' || nameArr[j] == 'Lannister' || nameArr[j] == 'Targaryen') {
+                //                 console.log(res.name)
+                //                 console.log(res.url)
+                //                 console.log('---------------------------------')
+                //             }
+                //         }
+                //     }, 'json');
+                // }
+
+                function printInfo(num) {
+                    $.get(`https://anapioficeandfire.com/api/houses/${num}`, function(res) {
+                        $('#name').text(res.name);
+                        $('#region').text(res.region);
+                        $('#coat-of-arms').text(res.coatOfArms);
+                        $('#words').text(res.words);
+                        for(i = 0; i < res.titles.length; i++) {
+                            $('#titles').text(res.titles[i])
+                        };
+                    }, 'json'); 
+                }
+                
+
+                $("img").on('click', function() {
+                    if($(this).attr('id') == 'stark') {
+                        printInfo(362)
+                    } else if($(this).attr('id') == 'lannister') {
+                        printInfo(229)                       
+                    } else if($(this).attr('id') == 'targaryen') {
+                        printInfo(378)                        
+                    } else if($(this).attr('id') == 'baratheon') {
+                        printInfo(16)                       
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <img id='stark' src="stark.jpg" alt="stark">
+        <img id="lannister" src="lannister.jpg" alt="lannister">
+        <img id="targaryen" src="targaryen.jpg" alt="targaryen">
+        <img id="baratheon" src="baratheon.png" alt="baratheon">
+
+        <div id="house-details">
+            <h2>House Details</h2>
+            <h3>Name: <span id="name"></span></h3>
+            <h3>Region: <span id="region"></span></h3>
+            <h3>Coat Of Arms: <span id="coat-of-arms"></span></h3>
+            <h3>Words: <span id="words"></span></h3>
+            <h3>Titles: <span id="titles"></span></h3>
+        </div>
+        
+    </body>
+</html>

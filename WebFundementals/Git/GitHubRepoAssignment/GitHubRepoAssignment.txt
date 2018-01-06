@@ -1,0 +1,25 @@
+mkdir GitHubRepoAssignment
+
+cd GitHubRepoAssignment
+
+touch GitHubRepoAssignment.txt
+
+git init
+
+touch readme.md
+
+vi readme.md
+
+wrote description
+
+[esc key] :exit
+
+git status
+
+git add .
+
+git commit -m 'initial commit'
+
+git remote add origin https://github.com/mkrabacher/GitHubRepoAssignment.git
+
+git push -u origin master

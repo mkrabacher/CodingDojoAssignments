@@ -1,0 +1,89 @@
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    display: block;
+    text-align: center;
+    margin: 0px 0px 5px;
+    background-color: darkgray;
+}
+
+h4 {
+    font-weight: normal;
+    font-style: normal;
+    padding: 0px;
+    margin: 4px;
+}
+
+#pokemon {
+    width: 930px;
+    display: inline-block;
+}
+
+#pokedex {
+    width: 385px;
+    height: 500px;
+    background-color: red;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#header {
+    background-color: gray;
+    height: 60px;
+    margin: 10px 10px 5px;
+    padding: 5px;
+}
+
+#name {
+    display: inline-block;
+    width: 225px;
+    margin: 0px 5px 0px 0px;
+    padding: 12px ;
+    vertical-align: top;
+    background-color: darkgray;
+}
+
+#num {
+    display: inline-block;
+    width: 70px;
+    margin: 0px;
+    padding: 12px ;
+    vertical-align: top;
+    background-color: darkgray;
+}
+
+#pic-frame {
+    background-color: gray;
+    height: 200px;
+    width: 355px;
+    margin: 0px 10px 5px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.pic {
+    background-color: darkgray;
+    width: 200px;
+    margin: 0px 77px;
+
+}
+
+#content {
+    background-color: gray;
+    height: 180px;
+    width: 355px;
+    margin: 0px 10px 0px;
+    padding: 5px;
+}
+
+.col {
+    background-color: darkgray;
+    padding: 5px;
+    margin: 0px;
+    display: inline-block;
+    width: 165px;
+    height: 140px;
+    vertical-align: top;
+}

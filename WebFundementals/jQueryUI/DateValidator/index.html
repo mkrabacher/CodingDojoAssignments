@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery UI Accordion - Default functionality</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css"> -->
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $(".date").datepicker();
+
+                $('button').on('click', function() {
+                    console.log($("#name").val());
+                    if($("#startDate").val() > $("#endDate").val()) {
+                        console.log($("#startDate").val() > $("#endDate").val())
+                        alert('hey moron you dates are wrong')
+                    } else if($("#name").val() != '' && $("#startDate").val() != '' && $("#endDate").val() != '') {
+                        var name = $("#name").val(),
+                            startDate = $("#startDate").val(),
+                            endDate = $("#endDate").val();
+                        alert(`HI! CONGRATULATIONS ${name}. You are looking at the dates ${startDate} to  ${endDate}. Isn't the Aaaaamazing?!`)
+                    } else if($("#name").val() == '') {
+                        $('#nameError').text('put your name in dude...')
+                    } else if($("#name").val() != '') {
+                        $('#nameError').text('')
+                    }
+
+                    if($("#startDate").val() == '') {
+                        $('#sDError').text("com'on man...")
+                    } else if($("#startDate").val() != '') {
+                        $('#sDError').text("")
+                    }
+
+                    if($("#endDate").val() == '') {
+                        $('#eDError').text("gtfo ->")
+                    }else if($("#endDate").val() != '') {
+                        $('#eDError').text("")
+                    }
+
+
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Welcome to the Date checker</h1>
+        <h3>the nifty website that's taking the world by storm</h3>
+        <h3>IT TELLS YOU WHAT DATE YOU SELECTED! AMAZ-BALLS!</h3>
+        <form action="notta.php">
+            <input type="text" name="name" id="name" placeholder="First and Last Name Here, Citizen!"><span id="nameError"></span> <br><br>
+            <input type="text" class="date" name="startDate" id="startDate" placeholder="From: 12/20/2017"><span id="sDError"></span> <br><br>
+            <input type="text" class="date" name="endDate" id="endDate" placeholder="To: 12/21/2017"> <span id="eDError"></span><br><br>
+            <button id="submit">Submit</button>
+        </form>
+    </body>
+</html>

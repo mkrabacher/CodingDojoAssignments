@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("form").submit(function() {
+                    var cityText = $('#cityInput').val();
+                    console.log($('#cityInput').val())
+                    var url = `http://api.openweathermap.org/data/2.5/weather?q=` + cityText + `&&appid=2ceeae90ad26190e3c4229310b94254c`;
+                    $.get(url, function(res) {
+                        console.log($('#cityInput').val())
+                        $('#city').text(res.name)
+                        $('#temp').text(Math.floor((res.main.temp - 273.15) / (5/9) + 32))
+                    }, 'json')
+
+
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Weather App</h1>
+        <form action="nothin.php">
+            <input id='cityInput' type="text" placeholder="enter city...">
+            <label for="cityInput">Enter City to See It's Weather</label>
+            <input style="display: block;" id="submit" type="submit">
+        </form>
+        <h2>City: <span id='city'></span></h2>
+        <h4>Temperature: <span id="temp"></span> f</h4>
+
+    </body>
+</html>

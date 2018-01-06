@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script>
+            console.log('yo it works');
+            var $ = function(target) {
+                var element = document.getElementById(target);
+                return {
+                    ready: function(thingstodo){
+                        console.log('hey you added some stuff to do when the doc is ready!');
+                        document.addEventListener("DOMContentLoaded", thingstodo);
+                    },
+
+                    addClickThingy: function(thingstodo) {
+                        console.log("you tryin to add a clicker stuff");
+                        element.addEventListener("click", thingstodo);
+                    }
+                };
+            };
+
+            $().ready(function(){
+                console.log("yo your event listener worked better than your grammar did");
+                $("clicker").addClickThingy(function(){
+                    console.log("we clicked on a thing!");
+                })
+            })
+
+
+        </script>
+    </head>
+    <body>
+        <button id="clicker">Yo</button>
+    </body>
+</html>
