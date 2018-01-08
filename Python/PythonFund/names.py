@@ -6,7 +6,7 @@ users = {
      {'first_name' : 'KB', 'last_name' : 'Tonel', 'number':7}
   ],
  'Instructors': [
-     {'first_name' : 'Michael', 'last_name' : 'Choi', 'number':11},
+     {'first_name':'Michael', 'last_name':'Choi', 'number':11},
      {'first_name' : 'Martin', 'last_name' : 'Puryear', 'number':13}
   ]
  }
