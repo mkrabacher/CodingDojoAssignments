@@ -1,0 +1,18 @@
+<html>
+    <head>
+       <title>Landing Page</title>
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    </head>
+    <body>
+      
+      <div id="frame">
+        <form action="/info" method="POST">
+          Your Name: <input type="text" name="name" id="name">
+          Dojo Location: <input type="selector" name="location" id="location">
+          Favorite Language: <input type="select" name="fav_lang" id="fav_lang">
+          <input type='submit' value='name'>
+        </form>
+      </div>
+
+    </body>
+</html>
