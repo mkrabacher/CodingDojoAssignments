@@ -1,13 +1,19 @@
 form {
-    background-color: blue
+    background-color: blue;
+    border: 3px solid black;
+    max-width: 280px;
+    padding: 20px;
 }
 
 body {
-    color: blue;
     background-color: blue
 }
 
-#name {
-    border: 3px solid black;
-    max-width: 300px;
+input, select {
+    display: block;
+    margin: 5px
+}
+
+#text {
+    color: white;
 }

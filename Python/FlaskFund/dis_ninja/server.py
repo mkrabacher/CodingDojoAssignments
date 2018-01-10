@@ -12,8 +12,7 @@ def process():
     name = request.form['name']
     location = request.form['location']
     fav_lang = request.form['fav_lang']
-    comment = request.form['comment']
-    return render_template("info.html", comment=comment, name=name, location=location, fav_lang=fav_lang)
+    return render_template("info.html", name=name, location=location, fav_lang=fav_lang)
 
 
 
