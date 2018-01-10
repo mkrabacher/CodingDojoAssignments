@@ -1,0 +1,12 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ninja.css') }}">
+</head>
+<body>
+    <h1>OH Fuck Yea Teenage Mutant Ninja Turtles Are Back BABAAAAAAAAAY!</h1>
+    {%if ninja_name == null%}
+    <img src="{{ url_for('static', filename='img/tmnt.png') }}" alt="whole_gang">
+    {%else%}
+    <img src="{{ url_for('static', filename='img/'+ninja_img) }}" alt="{{ninja_img}}">
+    <h3>{{ninja_name}}</h3>
+    {%endif%}
+</body>
