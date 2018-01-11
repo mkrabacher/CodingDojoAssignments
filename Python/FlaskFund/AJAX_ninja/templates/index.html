@@ -1,0 +1,24 @@
+<html>
+    <head>
+       <title>Landing Page</title>
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+       <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+       <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+   </head>
+    <body>
+      
+      <div id="frame">
+        <h1>look at all the ninja's here</h1>
+        <div id="image"></div>
+        <p id="caption"></p>
+        <button id="red">Red</button>
+        <button id="blue">Blue</button>
+        <button id="orange">Orange</button>
+        <button id="purple">Purple</button>
+        <p>or choose a custom color:</p>
+        <input type="text" name="cust_color" id="cust_color">
+        <button type="submit" name="submit" id="submit">get color</button>
+      </div>
+
+    </body>
+</html>

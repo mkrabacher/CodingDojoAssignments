@@ -1,12 +1,19 @@
-form {
-    background-color: blue
-}
 
 body {
-    background-color: blue
+
+}
+
+
+input {
+    margin: 5px;
 }
 
 #name {
     border: 3px solid black;
-    max-width: 300px;
+    max-width: 250px;
+    padding: 20px;
+}
+
+p {
+    color: red;
 }

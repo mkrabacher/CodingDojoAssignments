@@ -3,11 +3,16 @@
        <title>Landing Page</title>
        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
     </head>
-    <body>
-      
+    <body style="background-color: rgb({{red}},{{green}},{{blue}})">
+      <h1>Enter you color values below:</h1>
       <div id="frame">
-        <h1>look at all the ninja's here</h1>
-        <a href="/ninja">reveal ninjas</a>
+        <form action="/process" method="post" id="name">
+          Red: <input type="text" name="red" id="red">
+          Green: <input type="text" name="green" id="green">
+          Blue: <input type="text" name="blue" id="blue">
+          <input type="submit" value="submit">
+        </form>
+        <p>* all values must be between 1 and 255</p>
       </div>
 
     </body>
