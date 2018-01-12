@@ -1,0 +1,21 @@
+* {
+    margin: 20px 13%;
+}
+
+.winner {
+    height: 200px;
+    width: 350px;
+    background-color: green;
+}
+
+.less {
+    height: 200px;
+    width: 350px;
+    background-color: blue;
+}
+
+.greater {
+    height: 200px;
+    width: 350px;
+    background-color: red;
+}

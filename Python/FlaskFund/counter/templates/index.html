@@ -1,10 +1,39 @@
 <html>
     <head>
-       <title>Form Test Index</title>
+        <title>Form Test Index</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function() {
+                console.log($('h3').html())
+                if(!$('h3').html()){
+                    $('#counter').submit()
+                }
+                $("#btn1").click(function(){
+                    $("#inc1").submit()
+                })
+                $("#btn2").click(function(){
+                    $("#inc2").submit()
+                })
+                $("#reset").click(function(){
+                    $("#res").submit()
+                })
+            })
+        </script>
     </head>
     <body>
-      <h1>COunter</h1>
-      <h3>session['counter']</h3>
-      </form>
+        <h1>COunter</h1>
+        <form id="counter" action="/process">
+            <input type="hidden" name="counter" value='counter'>
+        </form>
+        <form id="inc1" action="/increment1">
+            <button id="btn1" value="one">Increment: +1</button>
+        </form>
+        <form id="inc2" action="/increment2">
+            <button id="btn2" value="two">Increment: +2</button>
+        </form>
+        <form id="res" action="/reset">
+            <button id="reset">reset count</button>
+        </form>
+        <h3>{{session['counter']}}</h3>
     </body>
 </html>

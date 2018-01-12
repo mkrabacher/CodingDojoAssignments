@@ -1,0 +1,24 @@
+
+
+.room {
+    height: 200px;
+    width: 200px;
+    background-color: rgb(147, 223, 147);
+    border: 3px solid green;
+    display: inline-block;
+    margin: 10px 0px;
+    padding: 10px 30px;
+}
+
+#roomFrame {
+    width: 1076px;
+    display: block;
+}
+
+#log {
+    background-color: rgb(226, 166, 226);
+    border: 3px solid purple;
+    width: 1075px;
+    height: 150px;
+
+}
