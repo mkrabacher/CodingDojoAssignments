@@ -19,6 +19,18 @@
     background-color: rgb(226, 166, 226);
     border: 3px solid purple;
     width: 1075px;
-    height: 150px;
+    height: 165px;
 
+}
+
+#logText {
+    /* background-color: rgb(226, 166, 226); */
+    width: 1000px; 
+    height: 140px;
+
+}
+
+.logEntry {
+    margin: 0px;
+    padding: 0px;
 }

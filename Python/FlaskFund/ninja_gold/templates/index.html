@@ -9,9 +9,9 @@
                 return !isNaN(value) && (x | 0) === x;
             }
             $(document).ready(function() {
+                // $("#logText").html('<p>{{session["log"]}}</p>')
                 $("#farmBtn").click(function(){
                     console.log('here')
-                    // $("#logText").before('<p>You worked{{newGold}} the shit outta that farm for</p>')
                 })
             })
         </script>
@@ -65,10 +65,17 @@
         <h3>Activities:</h3>
         <div id="log">
             <div id="logText">
-                <!-- you are here. -->
-                {{log1}}{{newGold}}{{log2}}
+                <p class="logEntry">{{log[0]}}</p>
+                <p class="logEntry">{{log[1]}}</p>
+                <p class="logEntry">{{log[2]}}</p>
+                <p class="logEntry">{{log[3]}}</p>
+                <p class="logEntry">{{log[4]}}</p>
+                <p class="logEntry">{{log[5]}}</p>
+                <p class="logEntry">{{log[6]}}</p>
+                <p class="logEntry">{{log[7]}}</p>
+                <p class="logEntry">{{log[8]}}</p>
             </div>
-
+            
         </div>
     </body>
 </html>

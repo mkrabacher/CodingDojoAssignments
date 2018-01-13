@@ -2,44 +2,23 @@
     <head>
         <title>Form Test Index</title>
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
-        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-        <script>
-            function isInt(value) {
-                var x = parseFloat(value);
-                return !isNaN(value) && (x | 0) === x;
-            }
-            $(document).ready(function() {
-                $("#submit").click(function(){
-                    console.log($("#textbox").val())
-                    if(isInt($("#textbox").val())){
-                        $("#guess").submit()
-                        $("#result").html('your guess was:')
-                    } else {
-                        $("#result").html('jsut put a number in idiot.')
-                    }
-                })
-                $("#reset").click(function(){
-                    $("#reset").submit()
-                })
-            })
-        </script>
     </head>
     <body>
         <h1>Welcome to the Random NUmber game</h1>
         <h3>where the game is rigged and you don't matter</h3>
-        <div id="result" class={{template}}>
-
+        <div id="resultframe" class={{template}}>
+            <div id={{template}}>
+                <h1>{{message}}</h1>
+            </div>
         </div>
         <h4>I'm thinking of a number from 1 to 100. Take a guess. Good luck sucka</h4>
         <form id="guess" action="/process" method='POST'>
-            <input type="text" name="guess" id='textbox'>
+            <input type="int" name="guess" id='textbox'>
+            <button id="submit">Submit</button>
         </form>
-        <button id="submit">Submit</button>
         <form action="/reset" name="reset" method='POST'>
             <input type="hidden" name="reset" id="reset">
             <button id="reset">Reset</button>
         </form>
-        <p>template: {{template}}</p>
-        <p>number: {{session['number']}}</p>
     </body>
 </html>

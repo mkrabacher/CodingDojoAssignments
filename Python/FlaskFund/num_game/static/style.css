@@ -9,13 +9,23 @@
 }
 
 .less {
-    height: 200px;
-    width: 350px;
     background-color: blue;
+    padding: 100px 20px;
 }
 
 .greater {
     height: 200px;
     width: 350px;
     background-color: red;
+}
+
+.fail {
+    height: 200px;
+    width: 350px;
+    background-color: rgb(5, 5, 5);
+}
+
+.fail h1 {
+    color: rgb(255, 0, 200)
+
 }

@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <title>Landing Page</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+
+  <div id="frame">
+    <h1>Ugly ugly css, how do you become the best?</h1>
+    <form action="/info" method="POST">
+      <text id="text">Your Name:</text>
+      <input type="text" name="name" id="name">
+      <text id="text">Dojo Location:</text>
+      <select type="select" name="location" id="location">
+        <option value="rain town">Seattle</option>
+        <option value="under control of the great apple in the sky">San josy</option>
+        <option value="debuique">game of thrones</option>
+      </select>
+      <text id="text">Favorite Language:</text>
+      <select type="select" name="fav_lang" id="fav_lang">
+        <option value="snake stuff">Python</option>
+        <option value="b flat">C#</option>
+        <option value="java">game of thrones</option>
+      </select>
+      <text id="text">Comment (optional)</text>
+      <textarea name="comment" id="comment" rows="6" cols="30"></textarea>
+      <p>(no more than 120 characters plz.)</p>
+      <input type='submit' value='Submit'>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <h3 id="errTitle">Here's how you screwed up:</h3>
+        {% for message in messages %}
+         <p class="err">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+</body>
+
+</html>

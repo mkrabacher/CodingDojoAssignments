@@ -1,0 +1,27 @@
+form {
+    background-color: blue;
+    border: 3px solid black;
+    max-width: 280px;
+    padding: 20px;
+}
+
+body {
+    background-color: blue
+}
+
+input, select {
+    display: block;
+    margin: 5px
+}
+
+#text {
+    color: white;
+}
+
+#errTitle, .err {
+    color: white;
+}
+
+form p {
+    margin: 0px;
+}

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 import random
 app = Flask(__name__)
-app.secret_key = 'ThisIsSecret'
+app.secret_key = 'a'
 
 @app.route('/')
 def index():
@@ -13,28 +13,24 @@ def index():
 @app.route('/process', methods=['POST'])
 def guessFunc():
     guess = request.form['guess']
-    print guess
-    print session['number']
-    print guess == session['number']
-    print guess > session['number']
-    print guess < session['number']
-    if session['guess'] == session['number']:
-        return render_template('index.html', template='winner')
-    elif session['guess'] < session['number']:
-        return render_template('index.html', template='less')
-    elif session['guess'] > session['number']:
-        return render_template('index.html', template='greater')
-    return ('', 204)
+    try:
+        if int(guess) == session['number']:
+            message = str(session['number']) + 'was the number'
+            return render_template('index.html', template='winner', message=message)
+        elif int(guess) < session['number']:
+            message = 'Too Low!'
+            return render_template('index.html', template='less', message=message)
+        elif int(guess) > session['number']:
+            message = 'Too High!'
+            return render_template('index.html', template='greater', message=message)
+    except(ValueError):
+        pass
+    message = 'just put a number in man.'
+    return render_template('index.html', template='fail', message=message)
 
 @app.route('/reset', methods=['POST'])
 def reset():
-    print 'hello'
-    session['number'] = random.randint(1, 101)
+    session.clear()
     return redirect('/')
-
-# @app.route('/reset')
-# def reset():
-#     session['counter'] = 0
-#     return redirect('/')
 
 app.run(debug=True)

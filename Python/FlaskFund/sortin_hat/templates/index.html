@@ -1,0 +1,29 @@
+<html>
+
+<head>
+  <title>the Gordian Know</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+
+  <div id="frame">
+    <h1>the Gordian Knot</h1>
+    <form action="/sort" method="POST">
+      <text id="text">Your Name:</text>
+      <input type="text" name="name" id="name">
+      <input type='submit' value='Get Sorted'>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <h3 id="errTitle">Here's how you screwed up:</h3>
+        {% for message in messages %}
+         <p class="err">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+</body>
+
+</html>

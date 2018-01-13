@@ -1,0 +1,15 @@
+form {
+    background-color: rgb(145, 202, 176);
+    border: 3px solid rgb(39, 78, 38);
+    max-width: 280px;
+    padding: 20px;
+}
+
+input, select {
+    display: block;
+    margin: 5px
+}
+
+form p {
+    margin: 0px;
+}
