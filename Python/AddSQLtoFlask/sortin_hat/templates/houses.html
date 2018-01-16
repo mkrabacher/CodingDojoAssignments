@@ -1,0 +1,47 @@
+<html>
+    
+    <head>
+      <title>the Gordian Know</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    </head>
+    
+    <body>
+        {{context}}
+        <ul>
+            {%for res in context%}
+                <li>{{res.student}} {{res.house}}</li>
+            {%endfor%}
+        </ul>
+
+        <h1>Ilvermony Dojo</h1>
+        
+        <h4>Thunderbird</h4>
+        <ul>
+            <li>Bob Ross</li>
+            <li>Bob Ross</li>
+            <li>Bob Ross</li>
+            <li>Bob Ross</li>
+        </ul>
+        <h4>Wampus</h4>
+        <ul>
+            <li>Monet Smth</li>
+            <li>Monet Smth</li>
+            <li>Monet Smth</li>
+            <li>Monet Smth</li>
+        </ul>
+        <h4>Horned Serpent</h4>
+        <ul>
+            <li>steev</li>
+            <li>steev</li>
+            <li>steev</li>
+            <li>steev</li>
+        </ul>
+        <h4>PuckwaGee</h4>
+        <ul>
+            <li>jill</li>
+            <li>jill</li>
+            <li>jill</li>
+            <li>jill</li>
+        </ul>
+    </body>
+</html>

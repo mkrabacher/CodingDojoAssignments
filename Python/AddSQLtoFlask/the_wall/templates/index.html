@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Friends</title>
+</head>
+
+<body>
+    <h1>Register and/or Log In</h1>
+    <br>
+
+    <br>
+    <form action="/login" method='POST'>
+        <label for="email">Email:
+            <input type="text" name="email" id="email" required>
+        </label><br>
+        <label for="password">Password:
+            <input type="text" name="password" id="password" required>
+        </label><br>
+        <input type="submit" name="submit" id="submit" value="Login">
+    </form>
+    {%with errors = get_flashed_messages()%} {%if errors%} {%for error in errors%}
+    <p style="color: red">{{error}}</p>
+    {%endfor%} {%endif%} {%endwith%}
+    or <br><br>
+    <form action='/register'>
+        <input type="submit" value="Register">
+    </form>
+</body>
+
+</html>

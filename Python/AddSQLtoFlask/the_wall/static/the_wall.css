@@ -1,0 +1,23 @@
+#navbar {
+    background-color: lightgray;
+    padding: 5px;
+}
+
+h1 {
+    display: inline-block;
+}
+
+#welcome {
+    display: inline-block;
+    margin: 0px 20px
+}
+
+#navbtn {
+    float: right;
+    padding: 30px;
+}
+
+.del-btn {
+    display: inline-block;
+    margin: 0px
+}

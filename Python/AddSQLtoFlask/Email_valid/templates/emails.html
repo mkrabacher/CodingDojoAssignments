@@ -1,0 +1,42 @@
+<html>
+    
+    <head>
+        <title>Friends</title>
+    </head>
+    
+    <hr>
+    <body>
+        <div style="background-color: green; width: 400px; padding: 10px">
+            <h3></h3>
+            <h3 style="text-align: center">{{submitted_email}} is correct. which means you figured out how to write and email address. your medal is in the mail.</h3>
+        </div>
+        <table>
+            <thead>
+                <th>ID</td>
+                <th>Email</td>
+                <th>Created</td>
+                <th>Updated</td>
+            </thead>
+            <tbody>
+                {%for email in emails:%}
+                <tr>
+                    <td>{{email['id']}}</td>
+                    <td>{{email['email']}}</td>
+                    <td>{{email['date_created']}}</td>
+                    <td>{{email['date_updated']}}</td>
+                    <!-- <td>
+                        <form action="/delete">
+                            <input type="hidden" name="del_id" value="{{email['id']}}" id="{{email['id']}}">
+                            <input type="submit" name="submit" id="submit" value="Delete">
+                        </form>
+                    </td> -->
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        
+        <hr>
+    
+    </body>
+    
+    </html>

@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>The Wall</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='the_wall.css')}}">
+</head>
+
+
+<body>
+    <div id="navbar">
+        <h1>The Wall</h1>
+        <div id="navbtn">
+            <h4 id="welcome">Welcome {{current_user['first_name']}}</h4>
+            <a href="/logoff">log off</a>
+        </div>
+    </div>
+    <hr>
+    <h3>Write a new post:</h3>
+    <form action="/newpost" method="post">
+        <textarea cols="50" rows="5" name="post" id="post" placeholder="post here..."></textarea>
+        <br>
+        <input type="submit" name="submit" id="submit" value="Submit Post">
+    </form>
+    <hr>
+    <h3>This is what the people are talking about</h3>
+    {%for post in posts:%}
+    <div id="post-frame">
+        <p style="margin: 20px 0px 0px; display:inline-block">
+            {%for user in users:%} {%if user['id'] == post['users_id']:%}
+                <strong>Post by {{user['first_name']}} {{user['last_name']}} - {{post['date_created']}}</p></strong>
+                {%if user['id'] == session['current_user']['id']:%}
+                <form class="del-btn" action="del_post" method="post">
+                    <input type="hidden" name="post_id" value="{{post['id']}}">
+                    <input type="submit" name="del_post", value="Delete Post">
+                </form>
+                {%endif%}
+            {%endif%} {%endfor%}
+        <p style="margin: 0px 20px;">{{post['post']}}</p>
+        <div class="comment-frame" style="margin: 0px 20px 0px;">
+            {%for comment in comments:%}
+            {%if comment['posts_id'] == post['id']%}
+            <p style="margin: 20px 0px 0px; display:inline-block">
+                {%for user in users:%} {%if user['id'] == comment['users_id']:%}
+                    <strong>Comment by {{user['first_name']}} {{user['last_name']}} - {{comment['date_created']}}</p></strong>
+                    {%if user['id'] == session['current_user']['id']:%}
+                    <form class="del-btn" action="del_com" method="post">
+                        <input type="hidden" name="comment_id" value="{{comment['id']}}">
+                        <input type="submit" name="del_com", value="Delete Comment">
+                    </form>
+                    {%endif%}
+                {%endif%} {%endfor%}
+            <p style="margin: 0px 20px;">{{comment['comment']}}</p>
+            {%endif%}
+            {%endfor%}
+            <form action="/comment" method="post">
+                <input type="hidden" name="post_id" id="post_id" value="{{post['id']}}">
+                <textarea name="comment" id="comment" cols="40" rows="3" placeholder="comment here..."></textarea><br>
+                <input type="submit" name="submit" id="submit" value="Comment">
+            </form>
+        </div>
+
+    </div>
+    {%endfor%}
+
+    <hr>
+
+</body>
+
+</html>

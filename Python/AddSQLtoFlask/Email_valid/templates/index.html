@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Friends</title>
+</head>
+
+<body>
+    <h1>give me your email.</h1>
+    <h2>OR ELSE!</h2>
+    <br>
+
+    {%with errors = get_flashed_messages()%}
+        {%if errors%}
+            <div id="errorFrame" style="background-color: red; width: 400px; padding: 10px">
+                <h2 style="color: white; text-align: center;">WRONG!</h2>
+                <h3 id="error" style="color: white; text-align: center">{{errors[0]}}</h3>
+            </div>
+        {%endif%}
+    {%endwith%}
+
+    <br>
+    <form action='/new' method='POST'>
+        <label for="email">Email:
+            <input type="text" name="email" id="email">
+        </label>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

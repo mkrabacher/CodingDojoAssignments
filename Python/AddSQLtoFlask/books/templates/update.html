@@ -1,0 +1,11 @@
+<h2>Update {{book[0]['title']}}</h2>
+<form action='/update' method='post'>
+    <input type="hidden" name="id" id="{{book[0]['id']}}" value="{{book[0]['id']}}">
+    <label for="title">Title:
+        <input type="text" name="title" id="title" value="{{book[0]['title']}}">
+    </label><br><br>
+    <label for="author">Author:
+        <input type="text" name="author" id="author" value="{{book[0]['author']}}">
+    </label><br><br>
+    <input type="submit" value="Update">
+</form>

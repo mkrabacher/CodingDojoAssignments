@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Friends</title>
+</head>
+
+
+<body>
+    <h1>Success!</h1>
+    <h3>Here Are The Registered Users:</h3>
+    <hr>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Date Created</th>
+            <th>Last Updated</th>
+        </thead>
+        <tbody>
+            {%for user in users:%}
+            <tr>
+                <td>{{user['id']}}</td>
+                <td>{{user['username']}}</td>
+                <td>{{user['password']}}</td>
+                <td>{{user['email']}}</td>
+                <td>{{user['date_created']}}</td>
+                <td>{{user['date_updated']}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    
+    <hr>
+
+</body>
+
+</html>
