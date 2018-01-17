@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja MF Gold</title>
+
+    <style>
+        * {
+            color: white;
+        }
+        
+        body{
+            background-color: black
+        }
+
+        h2, div p, div form {
+            display: block;
+            text-align: center;
+            color: black;
+        }
+
+        form input {
+            color: black;
+        }
+
+        span {
+            color: gold;
+            padding: 2px;
+            background-color: grey
+        }
+
+        .loc {
+            display: inline-block;
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(54, 153, 54);
+            border: 3px solid rgb(14, 59, 14)
+        }
+
+        #log {
+            margin: 20px 0px;
+            padding: 8px;
+            width: 975px;
+            height: 200px;
+            background-color: rgb(140, 151, 140);
+            border: 3px solid rgb(63, 66, 63);
+            overflow: auto;
+        }
+
+        #log p{
+            text-align: left;
+            margin: 0px
+        }
+    </style>
+</head>
+<body>
+    <h1>Ninja MF Gold</h1>
+    <p>Your gold: <span>{{request.session.gold}}</span></p>
+
+    <div class="loc" id="farm">
+        <h2>Farm</h2>
+        <p>(earns 10-20 golds)</p>
+        <form action="/process" method="post">
+            {%csrf_token%}
+            <input type="hidden" name="location" value="farm">
+            <input type="submit" value="Get Money">
+        </form>
+    </div>
+    <div class="loc" id="cave">
+        <h2>Cave</h2>
+        <p>(earns 5-10 golds)</p>
+        <form action="/process" method="post">
+            {%csrf_token%}
+            <input type="hidden" name="location" value="cave">
+            <input type="submit" value="Get Money">
+        </form>
+    </div>
+    <div class="loc" id="house">
+        <h2>House</h2>
+        <p>(earns 2-5 golds)</p>
+        <form action="/process" method="post">
+            {%csrf_token%}
+            <input type="hidden" name="location" value="house">
+            <input type="submit" value="Get Money">
+        </form>
+    </div>
+    <div class="loc" id="casino">
+        <h2>Casino</h2>
+        <p>(earns/takes 0-50 golds)</p>
+        <form action="/process" method="post">
+            {%csrf_token%}
+            <input type="hidden" name="location" value="casino">
+            <input type="submit" value="Get Money">
+        </form>
+    </div>
+    <div id="log">
+        {%for entry in request.session.log%}
+        <p>{{entry}}</p>
+        {%endfor%}
+    </div>
+    <form action="/reset" method="post">
+        {%csrf_token%}
+        <input type="submit" value="Reset">
+    </form>
+</body>
+</html>
