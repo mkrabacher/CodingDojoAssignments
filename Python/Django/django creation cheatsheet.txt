@@ -1,0 +1,37 @@
+From the dojoassignments/python/django folder
+django-admin startproject project_name
+
+cd project_name
+
+mkdir apps
+cd apps
+
+make an __init__.py in the apps folder
+
+python ../manage.py startapp app_name
+cd..
+
+in python/django/project_name find settings.py
+in INSTALLED_APPS add a line with apps.app_name
+
+in python/django/project_name find urls.py
+after 'from django.conf.urls import url' add ', include'
+in urlpatterns add a line with url(r'^', include('apps.app_name.urls'))
+
+in python/django/project_name/apps/app_name create urls.py. so far i've used:
+
+from django.conf.urls import url
+from . import views
+urlpatterns = [
+    url(r'^$', views.index)
+]
+
+in python/django/project_name/apps/app_name find views.py;
+
+add 'HttpResponse' and 'redirect' to import from django.shortcuts
+define the index function based on your needs. Here is an example with an HttpResponse
+
+def index(request):
+	return HttpResponse('hello')
+
+in python/django/project_name/apps/app_name create /templates/app_name directory and store app related templates(.html) there.

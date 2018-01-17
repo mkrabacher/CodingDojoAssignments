@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Session Words</title>
+</head>
+<body>
+    <div style="display:inline-block; max-width:40%; padding:2% 5%; border-right:2px solid black">
+        <h1>Add a new word</h1>
+        <form action="/process" method="post">
+            {%csrf_token%}
+            <input type="text" name="word" id="word"><br><br>
+            <label for="color">Pick a color:<br>
+                <input type="hidden" name="color" id="default" checked="checked">
+                <input type="radio" name="color" id="red" value="red">Red <br>
+                <input type="radio" name="color" id="green" value="green">Green <br>
+                <input type="radio" name="color" id="blue" value="blue">Blue
+            </label><br><br>
+            <label for="big">
+                <input type="hidden" name="big" id="default" checked="checked">
+                <input type="checkbox" name="big" id="big">show in BIG fonts!
+            </label><br><br>
+            <input type="submit" name="submit" id="submit" value="Add to session">
+        </form>
+    </div>
+    <div style="display: inline-block; padding:2% 5%; max-width:40%; vertical-align:top;">
+        <form action="/clear" method="post">
+            {%csrf_token%}
+            <input type="submit" name="clear" id="clear" value="Clear Session">
+        </form>
+        <h4 style="margin:10px 0px">log:</h4>
+        {%if request.session.log|length > 0%} {%for word in request.session.log%}
+            <p style="margin:0px"><span style="color:{{word.color}}; font-size:{{word.big}}% ">{{word.word}}</span> - {{word.time}}</p> 
+        {%empty%} {%endfor%} {%endif%}
+    </div>
+</body>
+</html>

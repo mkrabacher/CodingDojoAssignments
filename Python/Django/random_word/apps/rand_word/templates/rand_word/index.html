@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Random String is:</h1>
+    <h3>{{request.session.str}}</h3>
+    <h4>Attempt number: {{request.session.attempt}}</h4>
+
+    <form action="/generate" method="post">
+        {%csrf_token%}
+        <input type="submit" value="generate rand str">
+    </form>
+
+    <form action="/reset" method="post">
+        {%csrf_token%}
+        <input type="submit" value="reset rand str">
+    </form>
+</body>
+</html>

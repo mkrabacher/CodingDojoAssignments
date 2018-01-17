@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/survey" method="post">
+        {%csrf_token%}
+        <label for="name">Your Name:
+            <input type="text" name="name">
+        </label><br><br>
+        <label for="loc">Loaction:
+            <select name="loc" id="loc">
+                <option value="Seattle, WA">Seattle</option>
+                <option value="Debuque, OR">Debuquie</option>
+                <option value="Nebraska, OH">Nebraska</option>
+            </select>
+        </label><br><br>
+        <label for="lang">Favorite Language:
+            <select name="lang" id="lang">
+                <option value="python">Python</option>
+                <option value="js">JS</option>
+                <option value="node">node</option>
+            </select>
+        </label><br><br>
+        <label for="comment">Comment: <br>
+            <textarea name="comment" id="comment" cols="60" rows="5"></textarea>
+        </label><br><br>
+        <input type="submit" name="submit" id="submit" value="Submit">
+    </form>
+</body>
+</html>
