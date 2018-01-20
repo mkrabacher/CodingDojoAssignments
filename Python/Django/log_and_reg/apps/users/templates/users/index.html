@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log & Reg | Home</title>
+</head>
+
+<body>
+    <h1>Registration</h1>
+    {%for message in messages%}
+    <li>{{message}}</li>
+    {%endfor%}
+    <form action="/registerUser" method="post">
+        {%csrf_token%}
+        <label for="fName">First Name:
+            <input type="text" name="fName" id="fName">
+        </label>
+        <br>
+        <br>
+        <label for="lName">Last Name
+            <input type="text" name="lName" id="lName">
+        </label>
+        <br>
+        <br>
+        <label for="email">Email:
+            <input type="text" name="email" id="email">
+        </label>
+        <br>
+        <br>
+        <label for="birthday">Birthday:
+            <input type="date" name="birthday" id="birthday" required>
+        </label>
+        <br>
+        <br>
+        <label for="password">Password:
+            <input type="password" name="password" id="password">
+        </label>
+        <br>
+        <br>
+        <label for="pw_conf">Confirm Password:
+            <input type="password" name="pw_conf" id="pw_conf">
+        </label>
+        <br>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+    <hr>
+    <h1>Login:</h1>
+    <form action="/login" method="post">
+        {%csrf_token%}
+        <label for="email">Email:
+            <input type="text" name="email">
+        </label>
+        <label for="password">Password:
+            <input type="password" name="password">
+        </label>
+        <input type="submit" value="Login">
+    </form>
+    <hr>
+
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>birthday</th>
+            <th>password</th>
+        </thead>
+        <tbody>
+            {%for user in users%}
+            <tr>
+                <td>{{user.fName}}</td>
+                <td>{{user.lName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.birthday}}</td>
+                <td>{{user.password}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</body>
+
+</html>
