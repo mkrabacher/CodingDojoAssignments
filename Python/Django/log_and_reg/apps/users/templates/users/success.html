@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1>Success | Welcome {{curr_user.fName}} {{curr_user.lName}}</h1>
+    <a href="/logout">logout</a>
+    <h1>logged in user: {{request.session.curr_user_id}}</h1>
 
     <table>
         <thead>
@@ -20,8 +22,8 @@
         <tbody>
             {%for user in users%}
             <tr>
-                <td>{{user.fName}}</td>
-                <td>{{user.lName}}</td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.birthday}}</td>
                 <td>{{user.password}}</td>

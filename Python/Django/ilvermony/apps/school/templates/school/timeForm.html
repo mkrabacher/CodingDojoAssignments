@@ -1,0 +1,19 @@
+<html>
+    <form action="/ilvermorny/timeSubmit/" method="post">
+        {%csrf_token%}
+        <label for="time1">input time1
+            <input type="time" name="time1">
+        </label>    
+        
+        <label for="time1">input time2
+            <input type="time" name="time2">
+        </label>
+        <input type="submit" value="submit">
+    </form>
+
+    <h1>output: {{output}}</h1>
+    <h1>t1: {{t1}}</h1>
+    <h1>t2: {{t2}}</h1>
+    <h1>current date time: {{currentDT}}</h1>
+    <h1>current time: {{currentT}}</h1>
+</html>

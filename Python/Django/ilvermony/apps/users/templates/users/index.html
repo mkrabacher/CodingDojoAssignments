@@ -9,8 +9,7 @@
 </head>
 
 <body>
-    <a href="/logout">logout</a>
-    <h1>Registration</h1>
+    <h1>Welcome to Ilvermorny!</h1>
     {%for message in messages%}
     {{message}} <br>
     {%endfor%}
@@ -30,25 +29,22 @@
 
     <table>
         <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>birthday</th>
+            <th>wand desc</th>
             <th>password</th>
         </thead>
         <tbody>
             {%for user in users%}
             <tr>
-                <td>{{user.first_name}}</td>
-                <td>{{user.last_name}}</td>
+                <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
-                <td>{{user.birthday}}</td>
+                <td>{{user.wand_desc}}</td>
                 <td>{{user.password}}</td>
             </tr>
             {%endfor%}
         </tbody>
     </table>
-    <h1>logged in user: {{request.session.curr_user_id}}</h1>
 </body>
 
 </html>

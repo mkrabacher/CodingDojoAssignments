@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classes</title>
+</head>
+<body>
+    <h1>Ilvermorny</h1>
+    <h2>Go {{user.house}}</h2>
+    <a href="/logout">Log Out</a>
+    <hr>
+    <table>
+        <thead>
+            <th>Class</th>
+            <th>Instructor</th>
+            <th>Rating</th>
+            <th>Open Spots</th>
+            <th>Start</th>
+            <th>End</th>
+        </thead>
+        <tbody>
+            {%for class in classes%}
+            <tr>
+                <td><a href="/ilvermorny/classes/{{class.id}}">{{class.name}}</a></td>
+                <td>{{class.tearcher}}</td>
+                <td>ratings.class?</td>
+                <td>{{class.spots}}</td>
+                <td>{{class.start}}</td>
+                <td>{{class.end}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <hr>
+    <h3>Start a new Class</h3>
+    {%for message in messages%}
+    <p>{{message}}</p>
+    {%endfor%}
+    <form action="/ilvermorny/createClass/" method="post">
+        {%csrf_token%}
+        <label for="name">Title:
+            <input type="text" name="name">
+        </label>
+        <label for="desc">Description:
+            <input type="text" name="desc">
+        </label>
+        <label for="start">Start:
+            <input type="time" name="start">
+        </label>
+        <label for="end">End:
+            <input type="time" name="end">
+        </label>
+        <label for="spots">Max Class Size:
+            <input type="text" name="spots">
+        </label>
+        <input type="submit" value="Teach!">
+    </form>
+</body>
+</html>

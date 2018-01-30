@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{class.name}} class</title>
+</head>
+<body>    
+    <h1>Ilvermorny</h1>
+    <h2>Go {{user.house}}</h2>
+    <a href="/logout">Log Out</a>
+    <hr>
+    <h2>{{class.name}}</h2>
+    <p>{{class.spots}} / {{class.total_spots}} spots left</p>
+    <h3>Professor: {{class.teacher}}</h3>
+    <p>{{class.desc}}</p>
+    {%if class.teacher.id == user.id%}
+    <form action="/ilvermorny/cancelClass/" method="post">
+        {%csrf_token%}
+        <input type="hidden" name="id" value="{{class.id}}">
+        <input type="submit" value="Cancel">
+    </form>
+    {%else%}
+    <form action="/ilvermorny/enrollClass/" method="post">
+        {%csrf_token%}
+        <input type="hidden" name="id" value="{{class.id}}">
+        <input type="hidden" name="start" value="{{class.start}}">
+        <input type="hidden" name="end" value="{{class.end}}">
+        <input type="submit" value="Enroll">
+    </form>
+    {%endif%}
+    {%for message in messages%}
+    <p>{{message}}</p>
+    {%endfor%}
+    <hr>
+    <h3>rating: {{class.rating}}</h3>
+    <form action="/ilvermorny/createRating/" method="post">
+        {%csrf_token%}
+        <input type="hidden" name="id" value="{{class.id}}">
+        <label for='score'>Rating:
+            <input type="integer" name="score">
+        </label>
+        <label for="comment">Comment:
+            <input type="text" name="comment">
+        </label>
+        <input type="submit" value="Rate">
+    </form>
+    <hr>
+    <h3>student overall ratings: {{class_rating}}/5</h3>
+    <div style="border:3px soild black">
+        {%for rating in ratings%}
+        <p>{{rating.rater.name}} {{rating.score}} {{rating.comment}}</p>
+        {%endfor%}
+    </div>
+</body>
+</html>

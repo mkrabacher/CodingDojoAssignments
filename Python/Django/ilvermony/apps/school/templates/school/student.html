@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome {{user.name}}</title>
+</head>
+<body>
+    <h1>Ilvermorny</h1>
+    <h2>Go {{user.house}}</h2>
+    <a href="/logout">Log Out</a>
+    <hr>
+    <h2>Hi, {{user.name}}</h2>
+
+    <h3>Classes Attending:</h3>
+    <div style="border:3px solid black">
+        {%for class in user.classes.all%}
+        <a href="/class/{{class.id}}">{{class.name}}</a>
+        {%endfor%}
+    </div>
+    
+    <h3>Classes Leading:</h3>
+    <div style="border:3px solid black">
+        {%for class in user.teaching.all%}
+        <a href="/class/{{class.id}}">{{class.name}}</a>
+        {%endfor%}
+    </div>
+
+    <h2>Your next Thing</h2>
+    <h3>TEACHING {{next_class.name}}</h3>
+    <h3>@ {{next_class.start}}</h3>
+
+    <form action="/ilvermorny/classes" method="get">
+        <input type="submit" value="Go To Classes">
+    </form>
+    <form action="/ilvermorny/houses" method="get">
+        <input type="submit" value="Dash">
+    </form>
+</body>
+</html>

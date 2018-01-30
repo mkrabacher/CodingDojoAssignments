@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log & Reg | Home</title>
+    <title>Log & Reg | Success | Welcome {{user.fName}} {{user.lName}}</title>
 </head>
-
 <body>
-    <a href="/logout">logout</a>
-    <h1>Registration</h1>
-    {%for message in messages%}
-    {{message}} <br>
-    {%endfor%}
-    <form action="/registerUser" method="post">
-        {%csrf_token%}
-        {{regForm.as_p}}
-        <input type="submit" value="Register">
-    </form>
-    <hr>
-    <h1>Login:</h1>
-    <form action="/login" method="post">
-        {%csrf_token%}
-        {{loginForm.as_p}}
-        <input type="submit" value="Login">
-    </form>
-    <hr>
+    <h1>Success | Welcome {{curr_user.fName}} {{curr_user.lName}}</h1>
 
     <table>
         <thead>
@@ -48,7 +29,5 @@
             {%endfor%}
         </tbody>
     </table>
-    <h1>logged in user: {{request.session.curr_user_id}}</h1>
 </body>
-
 </html>

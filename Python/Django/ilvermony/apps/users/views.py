@@ -2,12 +2,14 @@
 from __future__ import unicode_literals
 from models import *
 from datetime import datetime
+from random import randint
 import bcrypt
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm, LoginForm
 
 def index(request):
+    request.session.clear()
     context = {
         'users':User.objects.all(),
         'regForm':RegistrationForm(),
@@ -16,8 +18,6 @@ def index(request):
     return render(request, 'users/index.html', context)
 
 def success(request):
-    if 'curr_user_id' not in request.session:
-        return redirect('/')
     context = {
         'users':User.objects.all(),
         'curr_user':User.objects.get(id=request.session['curr_user_id'])
@@ -28,48 +28,45 @@ def registerUser(request):
     if request.method == "POST":
         response_form = RegistrationForm(request.POST)
         if response_form.is_valid():
-            username = response_form.cleaned_data['username']
-            first_name = response_form.cleaned_data['first_name']
-            last_name = response_form.cleaned_data['last_name']
+            name = response_form.cleaned_data['name']
             email = response_form.cleaned_data['email']
-            birthday =response_form.cleaned_data['birthday']
+            wand_desc = response_form.cleaned_data['wand_desc']
 
         password =response_form.cleaned_data['password']
         pw_conf = response_form.cleaned_data['confirm_password']
         if password != pw_conf:
-            response_form.errors['password_match'] = "Your passwords don't match."
+            response_form.errors['password_match'] = "Your passwords don't match. Learn to type better"
         try:
             User.objects.get(email=email)
-            response_form.errors['password_match'] = "Email is already taken."
+            response_form.errors['password_match'] = "Email is already taken. Be more creative than you are."
         except:
             pass
         if len(response_form.errors) > 0:
-            if 'birthday' in response_form.errors:
-                response_form.errors['birthday'] = 'Enter a valid birthday. Use **/**/**** format.'
-
             for tag, error in response_form.errors.iteritems():
                 messages.error(request, error, extra_tags=tag)
             return redirect('/')
 
         else:
-            User.objects.create(username=username, first_name=first_name, last_name=last_name, email=email, birthday=birthday, password=bcrypt.hashpw(password.encode(), bcrypt.gensalt()))
+            houses = {1:'Thunderbirds',2:'Horned Serpent',3:'Wampus',4:'Pukwedgie'}
+            house = houses[randint(1,4)]
+            User.objects.create(name=name, email=email, wand_desc=wand_desc, house=house, password=bcrypt.hashpw(password.encode(), bcrypt.gensalt()))
             messages.add_message(request, messages.INFO, 'Success. Now log in.')
             return redirect('/')
 
 def login(request):
     if request.method == "POST":
-        email = request.POST['email']
+        name = request.POST['name']
         password = request.POST['password']
         
         try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(name=name)
         except:
-            messages.add_message(request, messages.INFO, 'Email does not exist.')
+            messages.add_message(request, messages.INFO, 'Name does not exist.')
             return redirect('/')
 
         if bcrypt.checkpw(password.encode(), user.password.encode()):
             request.session['curr_user_id'] = user.id
-            return redirect('/success')
+        return redirect('/ilvermorny/{}'.format(request.session['curr_user_id']))
 
 def logout(request):
     request.session.clear()
